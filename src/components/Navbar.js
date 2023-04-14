@@ -25,7 +25,7 @@ function Navbar() {
                   {username ? 
                   <Link to='/create' target='_self'>Create Portfolio</Link>:
                   <>  
-                    {/* {alert('Login first to create portfolio')} */}
+                    {alert('Login first to create portfolio')}
                     <Link to='/login' target='_self'>Create Portfolio</Link>
                   </>}
                 </a></li>

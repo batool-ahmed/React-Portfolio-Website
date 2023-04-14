@@ -17,7 +17,7 @@ function Contact() {
       })
         .then((response) => {
           if (response.ok) {
-            console.log('Form submitted successfully');
+            alert('Form submitted successfully');
             // reset the form
             setName('');
             setEmail('');
@@ -36,9 +36,6 @@ function Contact() {
     }
   }, [submitted, name, email, message]);
   
-  
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
     if (name === '') {
