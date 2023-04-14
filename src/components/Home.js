@@ -14,7 +14,7 @@ function Home() {
       setPortfolios(JSON.parse(storedPortfolios))
     }
   }, [localStorage])
-  
+
   return (
     <div>
       <section id="about" className="about">
@@ -36,7 +36,7 @@ function Home() {
           </section>
   
 
-      <section id="portfolio" className="portfolio bg-grey">
+      <section id="portfolio" className="portfolio bg-pink">
         <div className="container">
           
           <div className="section-title">
