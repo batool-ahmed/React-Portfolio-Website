@@ -8,6 +8,11 @@ import Contact from './Contact';
 
 function Navbar() {
   const { username } = useContext(UserContext);
+  const { setUsername: setUsernameContext } = useContext(UserContext);
+
+  const signout = () => { 
+    setUsernameContext('');
+  }
 
   return (
     <header id="header" className="d-flex align-items-center">
@@ -24,8 +29,12 @@ function Navbar() {
                   {username ? "Create Portfolio" : "Login to Create Portfolio"}
                 </NavLink>
               </li>
-              <li><NavLink className="nav-link scrollto" to="/login" activeClassName="active-link">Sign in</NavLink></li>
               <li><NavLink className="nav-link scrollto" to="/contact" activeClassName="active-link">Contact us</NavLink></li>
+              <li>
+                {username ? <a className="nav-link scrollto" href="#" onClick={signout}>Sign out</a> :
+                <NavLink className="nav-link scrollto" to="/login" activeClassName="active-link">Sign in</NavLink>
+                }
+              </li>
             </ul>
           </nav>
           <Routes>
