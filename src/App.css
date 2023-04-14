@@ -1288,6 +1288,12 @@ section {
   padding-top : 2%;
 }
 
+.margin-portfolio {
+  margin-right : 10%;
+  margin-left : 10%;
+  margin-top: 3%;
+}
+
 .horizontal-center {
   margin: 2% 0;
   position: absolute;

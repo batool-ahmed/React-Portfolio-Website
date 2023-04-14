@@ -2,7 +2,7 @@ import React from 'react'
 
 function Portfolio( { title, author, content } ) {
   return (
-    <div className="col-md-12 portfolio-item container white-div text-center padding-top-2 hotizontal-center">
+    <div className="col-md-12 portfolio-item container white-div text-center margin-portfolio hotizontal-center">
     {console.log(author)}
     <div>
       <div>
