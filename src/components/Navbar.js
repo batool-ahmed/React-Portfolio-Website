@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Redirect, NavLink } from "react-router-do
 import CreatePortfolio from './CreatePortfolio';
 import Home from './Home';
 import SignIn from './SignIn';
-import menu from '../../src/img/menu.png';
 import UserContext from "./UserContext";
 import Contact from './Contact';
 
@@ -28,8 +27,6 @@ function Navbar() {
               <li><NavLink className="nav-link scrollto" to="/login" activeClassName="active-link">Sign in</NavLink></li>
               <li><NavLink className="nav-link scrollto" to="/contact" activeClassName="active-link">Contact us</NavLink></li>
             </ul>
-            {/* <i className="bi bi-list mobile-nav-toggle"></i> */}
-            {/* <img src = {menu} className="bi bi-list mobile-nav-toggle"/> */}
           </nav>
           <Routes>
             <Route exact path="/" element={<Home />} />
