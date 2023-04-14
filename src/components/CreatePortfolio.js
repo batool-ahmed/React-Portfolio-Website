@@ -47,12 +47,11 @@ function CreatePortfolio() {
   return (
     <form onSubmit={handleSubmit} class="padding-5 padding-top-2">
       <h3 class="text-center">New Portfolio</h3>
-      <label for="title">Title</label>
+      <label for="title" className='leftAlign'>Title</label>
       <input className ='createField' type="text" placeholder='title' name="title" value={title} onChange={(event) => setTitle(event.target.value)} />
-      <label for="content">Content</label>
-      <textarea className ='createField' name="content" rows="5" value={content} onChange={(event) => setContent(event.target.value)} />
-      <button type="submit" class="pink-button horizontal-center">Create</button>
-      {console.log("username",username)}
+      <label for="content" className='leftAlign'>Content</label>
+      <textarea className ='createField' name="content" rows="10" value={content} onChange={(event) => setContent(event.target.value)} />
+      <button type="submit" class="pink-button purple-button horizontal-center">Create</button>
     </form>
   )
 }

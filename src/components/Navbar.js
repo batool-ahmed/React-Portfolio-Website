@@ -21,7 +21,14 @@ function Navbar() {
             <nav id="navbar" className="navbar">
                 <ul>
                 <li><a className="nav-link scrollto" ><Link to='/' target='_self'>Home</Link></a></li>
-                <li><a className="nav-link scrollto ">{username ? <Link to='/create' target='_self'>Create Portfolio</Link>:<Link to='/login' target='_self'>Create Portfolio</Link>}</a></li>
+                <li><a className="nav-link scrollto ">
+                  {username ? 
+                  <Link to='/create' target='_self'>Create Portfolio</Link>:
+                  <>  
+                    {/* {alert('Login first to create portfolio')} */}
+                    <Link to='/login' target='_self'>Create Portfolio</Link>
+                  </>}
+                </a></li>
                 <li><a className="nav-link scrollto"><Link to='/login' target='_self'>Sign in</Link></a></li>
                 </ul>
                 {/* <i className="bi bi-list mobile-nav-toggle"></i> */}
