@@ -6,6 +6,7 @@ A website where people can upload and manage their portfolios.
 - Fatima Zehra (fz04316)
 
 ## How to run this project:
+- Install node
 - Run the following command in your terminal after navigating to this app's folder :
     npm run start
 
