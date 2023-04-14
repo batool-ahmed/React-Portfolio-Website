@@ -15,17 +15,20 @@
 
 // export default CreatePortfolio
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import UserContext from "./UserContext";
+
 
 function CreatePortfolio() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const { username } = useContext(UserContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // Read the form data
-    const newPortfolio = { title, content };
+    const newPortfolio = { title, username, content };
 
     // Read the existing portfolios from localStorage
     const portfolios = JSON.parse(localStorage.getItem('portfolios')) || [];
@@ -49,6 +52,7 @@ function CreatePortfolio() {
       <label for="content">Content</label>
       <textarea className ='createField' name="content" rows="5" value={content} onChange={(event) => setContent(event.target.value)} />
       <button type="submit" class="pink-button horizontal-center">Create</button>
+      {console.log("username",username)}
     </form>
   )
 }

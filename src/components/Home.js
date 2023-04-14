@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Portfolio from './Portfolio'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import UserContext from "./UserContext";
+
 
 function Home() {
   const [portfolios, setPortfolios] = useState({})
+  const { username } = useContext(UserContext);
+
   useEffect(() => {
     const storedPortfolios = localStorage.getItem('portfolios')
     console.log(storedPortfolios)
@@ -53,12 +57,12 @@ function Home() {
 
 {Object.values(portfolios).map((portfolio, index) => (
   <Portfolio
-    key={index}
     title={portfolio.title}
+    author = {portfolio.username}
     content={portfolio.content}
   />
          ))}
- 
+
         </div>
       </div>
     </section>
