@@ -50,6 +50,7 @@ function Home() {
             title={portfolio.title}
             author = {portfolio.username}
             content={portfolio.content}
+            image = {portfolio.image}
           />
         ))}
         </div>

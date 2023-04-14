@@ -54,7 +54,6 @@ function CreatePortfolio() {
       <label htmlFor="image" className="leftAlign">Image</label>
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button type="submit" className="pink-button purple-button horizontal-center">Create</button>
-      {image && <img src={image} alt="Uploaded image" />}
     </form>
   );
 }
