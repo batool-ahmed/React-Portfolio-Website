@@ -5,9 +5,12 @@ import Portfolio from './Portfolio'
 
 function Home() {
   const [portfolios, setPortfolios] = useState({})
-  useEffect (() => {
-    setPortfolios(localStorage);
-    console.log(portfolios)
+  useEffect(() => {
+    const storedPortfolios = localStorage.getItem('portfolios')
+    console.log(storedPortfolios)
+    if (storedPortfolios) {
+      setPortfolios(JSON.parse(storedPortfolios))
+    }
   }, [localStorage])
   return (
     <div>
@@ -37,8 +40,25 @@ function Home() {
           <h2>Portfolios</h2>
           <p>Check out the portfolios uploaded by our users</p>
         </div>
-        <div className="row portfolio-container">          
-          <Portfolio title="Hello" author = "batool" content="hello"/>
+        <div className="row portfolio-container">  
+        {console.log(typeof portfolios)}
+        
+        {/* {portfolios.map((portfolio, index) => (
+          <Portfolio
+            key={index}
+            title={portfolio.title}
+            description={portfolio.description}
+          />
+        ))} */}
+
+{Object.values(portfolios).map((portfolio, index) => (
+  <Portfolio
+    key={index}
+    title={portfolio.title}
+    content={portfolio.content}
+  />
+         ))}
+ 
         </div>
       </div>
     </section>
