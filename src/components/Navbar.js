@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {BrowserRouter, Routes, Route, Redirect, Link } from "react-router-dom";
 import CreatePortfolio from './CreatePortfolio'
 import Home from './Home'
 import SignIn from './SignIn'
 import menu from '../../src/img/menu.png'
+import UserContext from "./UserContext";
 
 
 function Navbar() {
+  const { username } = useContext(UserContext);
+
   return (
     <header id="header" className="d-flex align-items-center">
     <div className="container d-flex align-items-center justify-content-between">
@@ -18,7 +21,7 @@ function Navbar() {
             <nav id="navbar" className="navbar">
                 <ul>
                 <li><a className="nav-link scrollto" ><Link to='/' target='_self'>Home</Link></a></li>
-                <li><a className="nav-link scrollto "><Link to='/create' target='_self'>Create Portfolio</Link></a></li>
+                <li><a className="nav-link scrollto ">{username ? <Link to='/create' target='_self'>Create Portfolio</Link>:<Link to='/login' target='_self'>Create Portfolio</Link>}</a></li>
                 <li><a className="nav-link scrollto"><Link to='/login' target='_self'>Sign in</Link></a></li>
                 </ul>
                 {/* <i className="bi bi-list mobile-nav-toggle"></i> */}

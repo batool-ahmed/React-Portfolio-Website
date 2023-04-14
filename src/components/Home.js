@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
 import Portfolio from './Portfolio'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import UserContext from "./UserContext";
 
 
@@ -45,23 +43,15 @@ function Home() {
           <p>Check out the portfolios uploaded by our users</p>
         </div>
         <div className="row portfolio-container">  
-        {console.log(typeof portfolios)}
         
-        {/* {portfolios.map((portfolio, index) => (
-          <Portfolio
-            key={index}
-            title={portfolio.title}
-            description={portfolio.description}
-          />
-        ))} */}
 
-{Object.values(portfolios).map((portfolio, index) => (
-  <Portfolio
-    title={portfolio.title}
-    author = {portfolio.username}
-    content={portfolio.content}
-  />
-         ))}
+        {Object.values(portfolios).map((portfolio, index) => (
+          <Portfolio
+            title={portfolio.title}
+            author = {portfolio.username}
+            content={portfolio.content}
+          />
+        ))}
 
         </div>
       </div>
