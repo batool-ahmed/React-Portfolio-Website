@@ -11,12 +11,12 @@ function SignIn() {
     const signin = () => { 
         if ((username == "batool") && (password == "hello1")){
             alert("Login Successful")
-            setUsernameContext(username);
+            setUsernameContext(username); //setting username 
             redirect("/"); // Navigate to the Home component            
         }
         else if ((username == "fatima") && (password == "hello2")){
             alert("Login Successful")
-            setUsernameContext(username);
+            setUsernameContext(username); //setting username 
             redirect("/"); // Navigate to the Home component            
         }
         else {

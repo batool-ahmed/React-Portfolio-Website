@@ -20,10 +20,11 @@ function Navbar() {
         <BrowserRouter>
           <nav id="navbar" className="navbar">
             <div className="logo">
-              <h1><a>Portfolios Collection</a></h1>
+              <h1><a><NavLink to="/">Portfolios Collection</NavLink></a></h1>
             </div>
             <ul>
               <li><NavLink className="nav-link scrollto" to="/" activeClassName="active-link">Home</NavLink></li>
+              {/* Conditional Routing */}
               <li>
                 <NavLink className="nav-link scrollto" to={username ? "/create" : "/login"} activeClassName="active-link">
                   {username ? "Create Portfolio" : "Login to Create Portfolio"}
@@ -37,6 +38,7 @@ function Navbar() {
               </li>
             </ul>
           </nav>
+          {/* All of the redirecting routes are defined here */}
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<SignIn />} />

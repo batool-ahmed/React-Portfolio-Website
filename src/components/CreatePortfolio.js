@@ -1,15 +1,18 @@
 import React, { useState, useContext } from 'react';
 import UserContext from "./UserContext";
+import { useNavigate } from "react-router-dom";
 
 function CreatePortfolio() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState(null);
   const { username } = useContext(UserContext);
+  const redirect = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
   
+    // makes it necessary to add image as portfolio is incomplete without image
     if (!image) {
       alert('Please select an image.');
       return;
@@ -31,6 +34,9 @@ function CreatePortfolio() {
     setTitle('');
     setContent('');
     setImage(null);
+
+    // Navigate to the Home component 
+    redirect("/");            
   };
   
 
