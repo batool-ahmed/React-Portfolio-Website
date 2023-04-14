@@ -1,60 +1,62 @@
-// import React from 'react'
-
-// function CreatePortfolio() {
-//   return (
-//     <form class="padding-5 padding-top-2">
-//     <h3 class="text-center">New Portfolio</h3>
-//     <label for="title">Title</label>
-//     <input className ='createField' type = "text" placeholder='title' name="title"/>
-//     <label for="content">Content</label>
-//     <textarea className ='createField' name="content" rows="5"/>
-//     <button type="submit" class="pink-button horizontal-center">Create</button>
-//  </form>
-//   )
-// }
-
-// export default CreatePortfolio
-
 import React, { useState, useContext } from 'react';
 import UserContext from "./UserContext";
-
 
 function CreatePortfolio() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [image, setImage] = useState(null);
   const { username } = useContext(UserContext);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+    const handleSubmit = (event) => {
+      event.preventDefault();
+    
+      if (!image) {
+        alert('Please select an image.');
+        return;
+      }
+    
+      // Read the form data
+      const newPortfolio = { title, username, content, image };
+    
+      // Read the existing portfolios from localStorage
+      const portfolios = JSON.parse(localStorage.getItem('portfolios')) || [];
+    
+      // Add the new portfolio to the array
+      portfolios.push(newPortfolio);
+    
+      // Save the updated portfolios to localStorage
+      localStorage.setItem('portfolios', JSON.stringify(portfolios));
+    
+      // Clear the form inputs
+      setTitle('');
+      setContent('');
+      setImage(null);
+    };
+    
 
-    // Read the form data
-    const newPortfolio = { title, username, content };
-
-    // Read the existing portfolios from localStorage
-    const portfolios = JSON.parse(localStorage.getItem('portfolios')) || [];
-
-    // Add the new portfolio to the array
-    portfolios.push(newPortfolio);
-
-    // Save the updated portfolios to localStorage
-    localStorage.setItem('portfolios', JSON.stringify(portfolios));
-
-    // Clear the form inputs
-    setTitle('');
-    setContent('');
-  };
+    const handleImageChange = (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+    };
+    
 
   return (
-    <form onSubmit={handleSubmit} class="padding-5 padding-top-2">
-      <h3 class="text-center">New Portfolio</h3>
-      <label for="title" className='leftAlign'>Title</label>
-      <input className ='createField' type="text" placeholder='title' name="title" value={title} onChange={(event) => setTitle(event.target.value)} />
-      <label for="content" className='leftAlign'>Content</label>
-      <textarea className ='createField' name="content" rows="10" value={content} onChange={(event) => setContent(event.target.value)} />
-      <button type="submit" class="pink-button purple-button horizontal-center">Create</button>
+    <form onSubmit={handleSubmit} className="padding-5 padding-top-2">
+      <h3 className="text-center">New Portfolio</h3>
+      <label htmlFor="title" className="leftAlign">Title</label>
+      <input className="createField" type="text" placeholder="title" name="title" value={title} onChange={(event) => setTitle(event.target.value)} />
+      <label htmlFor="content" className="leftAlign">Content</label>
+      <textarea className="createField" name="content" rows="10" value={content} onChange={(event) => setContent(event.target.value)} />
+      <label htmlFor="image" className="leftAlign">Image</label>
+      <input type="file" accept="image/*" onChange={handleImageChange} />
+      <button type="submit" className="pink-button purple-button horizontal-center">Create</button>
+      {image && <img src={image} alt="Uploaded image" />}
     </form>
-  )
+  );
 }
 
 export default CreatePortfolio;
-

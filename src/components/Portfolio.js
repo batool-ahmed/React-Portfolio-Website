@@ -3,7 +3,6 @@ import React from 'react'
 function Portfolio( { title, author, content } ) {
   return (
     <div className="col-md-12 portfolio-item container white-div text-center margin-portfolio hotizontal-center">
-    {console.log(author)}
     <div>
       <div>
         {/* <image src="{{MEDIA_URL}}{{post.image}}" class="img-left" width='20%' alt="portfolio image"/> */}

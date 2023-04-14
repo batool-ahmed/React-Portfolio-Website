@@ -52,7 +52,6 @@ function Home() {
             content={portfolio.content}
           />
         ))}
-
         </div>
       </div>
     </section>
