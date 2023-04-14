@@ -29,7 +29,7 @@ function SignIn() {
     
     return (
     <form className="signinBox center">
-        <h3 className="centerText">Sign in to create a Portfolio!</h3>
+        <h3 className="centerText">Sign in first to create a Portfolio!</h3>
         <input id ="signinField" type = "email" placeholder='Email' name="email" onChange={(e) => {setUsername(e.target.value)}}/>
         <input id="password signinField" placeholder='Password' type = "password" name="password" onChange={(e) => {setPassword(e.target.value)}}/>
         <button type="submit" className="pink-button signin-button" onClick={signin} >Login</button>

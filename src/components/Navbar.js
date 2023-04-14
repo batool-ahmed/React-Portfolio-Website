@@ -12,13 +12,12 @@ function Navbar() {
 
   return (
     <header id="header" className="d-flex align-items-center">
-    <div className="container d-flex align-items-center justify-content-between">
-
-      <div className="logo">
-        <h1><a>Portfolios Collection</a></h1>
-      </div>
+    <div className="container d-flex">
         <BrowserRouter>
             <nav id="navbar" className="navbar">
+              <div className="logo">
+                <h1><a>Portfolios Collection</a></h1>
+              </div>
                 <ul>
                 <li><a className="nav-link scrollto" ><Link to='/' target='_self'>Home</Link></a></li>
                 <li><a className="nav-link scrollto ">
