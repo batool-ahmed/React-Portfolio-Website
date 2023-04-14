@@ -7,41 +7,41 @@ function CreatePortfolio() {
   const [image, setImage] = useState(null);
   const { username } = useContext(UserContext);
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-    
-      if (!image) {
-        alert('Please select an image.');
-        return;
-      }
-    
-      // Read the form data
-      const newPortfolio = { title, username, content, image };
-    
-      // Read the existing portfolios from localStorage
-      const portfolios = JSON.parse(localStorage.getItem('portfolios')) || [];
-    
-      // Add the new portfolio to the array
-      portfolios.push(newPortfolio);
-    
-      // Save the updated portfolios to localStorage
-      localStorage.setItem('portfolios', JSON.stringify(portfolios));
-    
-      // Clear the form inputs
-      setTitle('');
-      setContent('');
-      setImage(null);
-    };
-    
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    if (!image) {
+      alert('Please select an image.');
+      return;
+    }
+  
+    // Read the form data
+    const newPortfolio = { title, username, content, image };
+  
+    // Read the existing portfolios from localStorage
+    const portfolios = JSON.parse(localStorage.getItem('portfolios')) || [];
+  
+    // Add the new portfolio to the array
+    portfolios.push(newPortfolio);
+  
+    // Save the updated portfolios to localStorage
+    localStorage.setItem('portfolios', JSON.stringify(portfolios));
+  
+    // Clear the form inputs
+    setTitle('');
+    setContent('');
+    setImage(null);
+  };
+  
 
-    const handleImageChange = (event) => {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImage(reader.result);
     };
+  };
     
 
   return (

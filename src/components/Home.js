@@ -14,48 +14,47 @@ function Home() {
       setPortfolios(JSON.parse(storedPortfolios))
     }
   }, [localStorage])
+  
   return (
     <div>
-    <section id="about" className="about">
-      <div className="container">
-    <div id="about" className="about">   
-        <div className="row no-gutters">
-          <div className="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
-          <div className="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-            <div className="content d-flex flex-column justify-content-center">
-              <h3>Portfolios Collection</h3>
-              <p>
-                A platform where you can upload, manage and showcase all of your porfolios.
-              </p>
+      <section id="about" className="about">
+        <div className="container">
+          <div id="about" className="about">   
+              <div className="row no-gutters">
+                <div className="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
+                <div className="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+                  <div className="content d-flex flex-column justify-content-center">
+                    <h3>Portfolios Collection</h3>
+                    <p>
+                      A platform where you can upload, manage and showcase all of your porfolios.
+                    </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          </section>
+  
+
+      <section id="portfolio" className="portfolio bg-grey">
+        <div className="container">
+          
+          <div className="section-title">
+            <h2>Portfolios</h2>
+            <p>Check out the portfolios uploaded by our users</p>
+          </div>
+          <div className="row portfolio-container">  
+            {Object.values(portfolios).map((portfolio, index) => (
+              <Portfolio
+                title={portfolio.title}
+                author = {portfolio.username}
+                content={portfolio.content}
+                image = {portfolio.image}
+              />
+            ))}
           </div>
         </div>
-        </div>
-        </section>
- 
-
-    <section id="portfolio" className="portfolio bg-grey">
-      <div className="container">
-        
-        <div className="section-title">
-          <h2>Portfolios</h2>
-          <p>Check out the portfolios uploaded by our users</p>
-        </div>
-        <div className="row portfolio-container">  
-        
-
-        {Object.values(portfolios).map((portfolio, index) => (
-          <Portfolio
-            title={portfolio.title}
-            author = {portfolio.username}
-            content={portfolio.content}
-            image = {portfolio.image}
-          />
-        ))}
-        </div>
-      </div>
-    </section>
+      </section>
     </div>
   )
 }

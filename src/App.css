@@ -1306,12 +1306,6 @@ section {
   display : inline;
 }
 
-.navbar a:focus {
-  color: purple;
-  font-weight: bold;
-}
-
-
 .App {
   text-align: center;
 }
@@ -1677,3 +1671,8 @@ nav {
   text-decoration: none;
   font-size: 1.2em;
 }
+
+.active-link {
+  color: red;
+}
+
